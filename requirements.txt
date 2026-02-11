@@ -1,0 +1,3 @@
+crewai
+requests
+python-dotenv
