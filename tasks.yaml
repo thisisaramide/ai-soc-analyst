@@ -1,0 +1,8 @@
+investigation_task:
+  description: >
+    1. Look at the IP address: {ip_address}.
+    2. Search your memory to see if this IP is known for being bad.
+    3. Write a simple report that says 'Safe' or 'Dangerous'.
+  expected_output: >
+    A final report that is easy to read, with a 'Risk Score' from 0 to 10.
+  agent: senior_soc_analyst
