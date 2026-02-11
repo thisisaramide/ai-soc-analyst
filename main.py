@@ -119,22 +119,22 @@ else:
 print(f"### Investigating: {target_ioc} ###")
 
 # --- PHASE 1: PYTHON GATHERS ALL DATA ---
-print("\n🔍 Phase 1: Gathering Intelligence (Python Mode)...")
+print("\n Phase 1: Gathering Intelligence (Python Mode)...")
 
 # 1. Get VirusTotal
 vt_result = run_virustotal(target_ioc)
-print("   ✅ VirusTotal Data Acquired")
+print("    VirusTotal Data Acquired")
 
 # 2. Get AbuseIPDB
 abuse_result = run_abuseipdb(target_ioc)
-print("   ✅ AbuseIPDB Data Acquired")
+print("    AbuseIPDB Data Acquired")
 
 # 3. Get Google Search (Using Requests, NOT Tool)
 google_result = run_google_search(f"{target_ioc} reputation malicious")
-print("   ✅ Google Search Data Acquired")
+print("    Google Search Data Acquired")
 
 # --- PHASE 2: AI WRITER ---
-print("\n🤖 Phase 2: AI Analyst Generating Report...")
+print("\n Phase 2: AI Analyst Generating Report...")
 
 my_brain = LLM(model="ollama/llama3.2", base_url="http://localhost:11434")
 
@@ -187,16 +187,16 @@ def send_discord_alert(message):
     data = {
         "content": "",
         "embeds": [{
-            "title": f"🚨 SOC Alert: {target_ioc}",
+            "title": f" SOC Alert: {target_ioc}",
             "description": msg_text[:4000],
             "color": 16711680
         }]
     }
     try:
         requests.post(DISCORD_WEBHOOK_URL, json=data)
-        print("\n✅ Discord Alert Sent!")
+        print("\n Discord Alert Sent!")
     except:
-        print("\n❌ Discord Failed")
+        print("\n Discord Failed")
 
 print("\n\n### FINAL REPORT ###")
 print(result)
